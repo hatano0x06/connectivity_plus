@@ -39,12 +39,6 @@ class Connectivity {
     if (_manualDartRegistrationNeeded) {
       // Only do the initial registration if it hasn't already been overridden
       // with a non-default instance.
-      if (!kIsWeb &&
-          ConnectivityPlatform.instance is MethodChannelConnectivity) {
-        if (Platform.isLinux) {
-          ConnectivityPlatform.instance = ConnectivityLinux();
-        }
-      }
       _manualDartRegistrationNeeded = false;
     }
     return ConnectivityPlatform.instance;
